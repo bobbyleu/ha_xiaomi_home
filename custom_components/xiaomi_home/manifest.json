@@ -2,7 +2,7 @@
     "domain": "xiaomi_home",
     "name": "Xiaomi Home",
     "codeowners": [
-        "@XiaoMi"
+        "@bobbyleu"
     ],
     "config_flow": true,
     "dependencies": [

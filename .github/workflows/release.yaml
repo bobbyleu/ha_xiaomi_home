@@ -32,14 +32,26 @@ jobs:
           VERSION=$(python3 -c "import json; print(json.load(open('custom_components/xiaomi_home/manifest.json', encoding='utf-8'))['version'])")
           # 去掉开头可能存在的 v，统一拼出 v<version> 作为 tag
           VERSION_NO_V=${VERSION#v}
+          # 只有 -alpha/-beta/-rc/-dev/-preview 才算预发布；-bobbyleu.N 是分叉修订号，属于正式版
+          if [[ "$VERSION_NO_V" =~ -(alpha|beta|rc|dev|preview) ]]; then
+            IS_PRERELEASE=true
+          else
+            IS_PRERELEASE=false
+          fi
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
           echo "version_no_v=$VERSION_NO_V" >> "$GITHUB_OUTPUT"
-          echo "Integration version: $VERSION -> tag v$VERSION_NO_V"
+          echo "is_prerelease=$IS_PRERELEASE" >> "$GITHUB_OUTPUT"
+          echo "Integration version: $VERSION -> tag v$VERSION_NO_V (prerelease=$IS_PRERELEASE)"
 
       - name: Check whether tag already exists
         id: check
         shell: bash
         run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            echo "Manual dispatch: refresh existing release in place."
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           if [[ "${{ github.ref }}" == refs/tags/* ]]; then
             echo "Tag push event: publish release directly."
             echo "skip=false" >> "$GITHUB_OUTPUT"
@@ -68,7 +80,7 @@ jobs:
           target_commitish: ${{ github.sha }}
           generate_release_notes: true
           draft: false
-          prerelease: ${{ contains(steps.version.outputs.version_no_v, '-') }}
+          prerelease: ${{ steps.version.outputs.is_prerelease == 'true' }}
           files: ${{ github.workspace }}/xiaomi_home.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
