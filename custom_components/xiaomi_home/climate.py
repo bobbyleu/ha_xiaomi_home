@@ -169,7 +169,7 @@ class FeatureTargetTemperature(MIoTServiceEntity, ClimateEntity):
                                           value=temp)
 
     @property
-    def target_temperature(self) -> Optional[float]:
+    def native_target_temperature(self) -> Optional[float]:
         """The current target temperature."""
         return (self.get_prop_value(
             prop=self._prop_target_temp) if self._prop_target_temp else None)
@@ -380,7 +380,7 @@ class FeatureTemperature(MIoTServiceEntity, ClimateEntity):
                 break
 
     @property
-    def current_temperature(self) -> Optional[float]:
+    def native_current_temperature(self) -> Optional[float]:
         """The current environment temperature."""
         return (self.get_prop_value(prop=self._prop_env_temperature)
                 if self._prop_env_temperature else None)

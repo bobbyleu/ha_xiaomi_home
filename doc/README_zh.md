@@ -2,6 +2,17 @@
 
 [English](../README.md) | [简体中文](./README_zh.md)
 
+## 关于本集成
+
+| 项目 | 说明 |
+|------|------|
+| **原作者** | [XiaoMi](https://github.com/XiaoMi/ha_xiaomi_home)。原始实现与版权归小米所有，感谢官方的原创工作。 |
+| **修改者 / 维护者** | [bobbyleu](https://github.com/bobbyleu/ha_xiaomi_home)。本仓库为其维护的分叉版本，并非从零创作。 |
+| **修改基线** | 上游 `v0.5.0`（分叉点），当前分叉版本 `v0.5.0-bobbyleu.1`。 |
+| **修改了什么** | ① 修复 Home Assistant 温度属性的弃用告警（改用 `native_*_temperature`）；② 按上游 PR #1818 迁移 device tracker 的 `battery_level` / `location_name` 弃用属性，电量与区域 ID 改由 sensor 实体承载。 |
+
+> **版本命名**：本仓库沿用 `<上游版本>-bobbyleu.<N>` 命名方案（与 ha-dsair 一致）。`<上游版本>` 是本分叉所基于的小米上游版本（当前为 `v0.5.0`），`<N>` 是本分叉自身的修订序号。例如 `v0.5.0-bobbyleu.1` 表示「基于上游 v0.5.0 的第 1 次修订」。
+
 米家集成是一个由小米官方提供支持的 Home Assistant 的集成组件，它可以让您在 Home Assistant 中使用小米 IoT 智能设备。
 
 ## 安装
@@ -15,7 +26,7 @@
 
 ```bash
 cd config
-git clone https://github.com/XiaoMi/ha_xiaomi_home.git
+git clone https://github.com/bobbyleu/ha_xiaomi_home.git
 cd ha_xiaomi_home
 ./install.sh /config
 ```
@@ -35,7 +46,7 @@ git checkout v1.0.0
 
 一键从 HACS 安装米家集成：
 
-[![打开您的 Home Assistant 实例并打开 Home Assistant 社区商店内的米家集成。](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=XiaoMi&repository=ha_xiaomi_home&category=integration)
+[![打开您的 Home Assistant 实例并打开 Home Assistant 社区商店内的米家集成。](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=bobbyleu&repository=ha_xiaomi_home&category=integration)
 
 或者，HACS > 在搜索框中输入 **Xiaomi Home** > 点击 **Xiaomi Home** ，进入集成详情页  > DOWNLOAD
 

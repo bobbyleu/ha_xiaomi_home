@@ -178,13 +178,13 @@ class WaterHeater(MIoTServiceEntity, WaterHeaterEntity):
                                           value=operation_mode))
 
     @property
-    def current_temperature(self) -> Optional[float]:
+    def native_current_temperature(self) -> Optional[float]:
         """The current temperature."""
         return (None if self._prop_temp is None else self.get_prop_value(
             prop=self._prop_temp))
 
     @property
-    def target_temperature(self) -> Optional[float]:
+    def native_target_temperature(self) -> Optional[float]:
         """The target temperature."""
         return (None if self._prop_target_temp is None else self.get_prop_value(
             prop=self._prop_target_temp))

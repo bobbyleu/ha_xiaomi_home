@@ -11,10 +11,10 @@
         "ffmpeg",
         "zeroconf"
     ],
-    "documentation": "https://github.com/XiaoMi/ha_xiaomi_home/blob/main/README.md",
+    "documentation": "https://github.com/bobbyleu/ha_xiaomi_home",
     "integration_type": "hub",
     "iot_class": "cloud_polling",
-    "issue_tracker": "https://github.com/XiaoMi/ha_xiaomi_home/issues",
+    "issue_tracker": "https://github.com/bobbyleu/ha_xiaomi_home/issues",
     "loggers": [
         "Xiaomi Home"
     ],
@@ -25,7 +25,7 @@
         "cryptography",
         "psutil"
     ],
-    "version": "v0.5.0",
+    "version": "v0.5.0-bobbyleu.1",
     "zeroconf": [
         "_miot-central._tcp.local."
     ]

@@ -2,6 +2,19 @@
 
 [English](./README.md) | [简体中文](./doc/README_zh.md)
 
+## 关于本集成 / About this integration
+
+| 项目 | 说明 |
+|------|------|
+| **原作者 / Original author** | [XiaoMi](https://github.com/XiaoMi/ha_xiaomi_home)。原始实现与版权归小米所有，感谢官方的原创工作。 |
+| **修改者 / Maintainer** | [bobbyleu](https://github.com/bobbyleu/ha_xiaomi_home)。本仓库为其维护的分叉版本，并非从零创作。 |
+| **修改基线 / Based on** | 上游 `v0.5.0`（分叉点），当前分叉版本 `v0.5.0-bobbyleu.1`。 |
+| **修改了什么 / Changes** | ① 修复 Home Assistant 温度属性的弃用告警（改用 `native_*_temperature`）；② 按上游 PR #1818 迁移 device tracker 的 `battery_level` / `location_name` 弃用属性，电量与区域 ID 改由 sensor 实体承载。 |
+
+> **版本命名 / Versioning**：本仓库沿用 `<上游版本>-bobbyleu.<N>` 命名方案（与 ha-dsair 一致）。`<上游版本>` 是本分叉所基于的小米上游版本（当前为 `v0.5.0`），`<N>` 是本分叉自身的修订序号。例如 `v0.5.0-bobbyleu.1` 表示「基于上游 v0.5.0 的第 1 次修订」。
+>
+> This integration was originally created by [XiaoMi](https://github.com/XiaoMi/ha_xiaomi_home) and is currently forked and maintained by [bobbyleu](https://github.com/bobbyleu/ha_xiaomi_home), based on upstream `v0.5.0`. This fork is not an original work; it focuses on Home Assistant deprecation fixes.
+
 Xiaomi Home Integration is an integrated component of Home Assistant supported by Xiaomi official. It allows you to use Xiaomi IoT smart devices in Home Assistant.
 
 ## Installation
@@ -15,7 +28,7 @@ Xiaomi Home Integration is an integrated component of Home Assistant supported b
 
 ```bash
 cd config
-git clone https://github.com/XiaoMi/ha_xiaomi_home.git
+git clone https://github.com/bobbyleu/ha_xiaomi_home.git
 cd ha_xiaomi_home
 ./install.sh /config
 ```
@@ -35,7 +48,7 @@ git checkout v1.0.0
 
 One-click installation from HACS:
 
-[![Open your Home Assistant instance and open the Xiaomi Home integration inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=XiaoMi&repository=ha_xiaomi_home&category=integration)
+[![Open your Home Assistant instance and open the Xiaomi Home integration inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=bobbyleu&repository=ha_xiaomi_home&category=integration)
 
 Or, HACS > In the search box, type **Xiaomi Home** > Click **Xiaomi Home**, getting into the detail page > DOWNLOAD
 
