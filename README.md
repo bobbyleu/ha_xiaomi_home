@@ -8,10 +8,10 @@
 |------|------|
 | **原作者 / Original author** | [XiaoMi](https://github.com/XiaoMi/ha_xiaomi_home)。原始实现与版权归小米所有，感谢官方的原创工作。 |
 | **修改者 / Maintainer** | [bobbyleu](https://github.com/bobbyleu/ha_xiaomi_home)。本仓库为其维护的分叉版本，并非从零创作。 |
-| **修改基线 / Based on** | 上游 `v0.5.0`（分叉点），当前分叉版本 `v0.5.0-bobbyleu.1`。 |
+| **修改基线 / Based on** | 上游 `v0.5.0`（分叉点），当前分叉版本 `v0.5.0-bobbyleu.2`。 |
 | **修改了什么 / Changes** | ① 修复 Home Assistant 温度属性的弃用告警（改用 `native_*_temperature`）；② 按上游 PR #1818 迁移 device tracker 的 `battery_level` / `location_name` 弃用属性，电量与区域 ID 改由 sensor 实体承载。 |
 
-> **版本命名 / Versioning**：本仓库沿用 `<上游版本>-bobbyleu.<N>` 命名方案（与 ha-dsair 一致）。`<上游版本>` 是本分叉所基于的小米上游版本（当前为 `v0.5.0`），`<N>` 是本分叉自身的修订序号。例如 `v0.5.0-bobbyleu.1` 表示「基于上游 v0.5.0 的第 1 次修订」。
+> **版本命名 / Versioning**：本仓库沿用 `<上游版本>-bobbyleu.<N>` 命名方案（与 ha-dsair 一致）。`<上游版本>` 是本分叉所基于的小米上游版本（当前为 `v0.5.0`），`<N>` 是本分叉自身的修订序号。例如 `v0.5.0-bobbyleu.2` 表示「基于上游 v0.5.0 的第 2 次修订」。
 >
 > This integration was originally created by [XiaoMi](https://github.com/XiaoMi/ha_xiaomi_home) and is currently forked and maintained by [bobbyleu](https://github.com/bobbyleu/ha_xiaomi_home), based on upstream `v0.5.0`. This fork is not an original work; it focuses on Home Assistant deprecation fixes.
 
