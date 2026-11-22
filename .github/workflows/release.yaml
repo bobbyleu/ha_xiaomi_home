@@ -68,7 +68,13 @@ jobs:
         if: steps.check.outputs.skip != 'true'
         shell: bash
         run: |
-          cd "${{ github.workspace }}/custom_components/xiaomi_home"
+          COMPONENT_DIR="${{ github.workspace }}/custom_components/xiaomi_home"
+          # HA 2026.11 内置 Marketplace 会从 release ZIP 的顶层读取 hacs.json，
+          # 缺失会导致 "missing the hacs.json file required for installation"。
+          # 打包时临时把仓库根目录的 hacs.json 放进组件目录，使其位于 ZIP 顶层。
+          cp "${{ github.workspace }}/hacs.json" "$COMPONENT_DIR/hacs.json"
+          trap 'rm -f "$COMPONENT_DIR/hacs.json"' EXIT
+          cd "$COMPONENT_DIR"
           zip -r "${{ github.workspace }}/xiaomi_home.zip" ./
 
       - name: Publish release
